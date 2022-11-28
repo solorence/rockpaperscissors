@@ -1,11 +1,16 @@
 let errorinfo = false;
 
 function getPlayerChoice(){
-  choice = prompt();
+  choice = prompt('Input a Your Choice');
+  choice = choice.toLowerCase();
   if (choice == 'rock' || choice == 'paper'|| choice == 'scissors'  )
   { return choice;} 
-  else {return errorinfo = 'invalid human choice'}
-} 
+  else { 
+        invalidChoice();
+        }  
+
+  return choice;
+}
 
 function getComputerChoice(){
   let rand = Math.floor(((Math.random()*3)+1)); 
@@ -20,6 +25,14 @@ function getComputerChoice(){
   } 
   
   return choice;
+}
+
+function invalidChoice(){
+  choice = prompt('Invalid Choice! PLEASE INPUT A VALID Choice');
+        choice = choice.toLowerCase();
+        if (choice == 'rock' || choice == 'paper'|| choice == 'scissors'  )
+          { return choice;}
+        else{invalidChoice();}
 }
 
 
